@@ -13,15 +13,14 @@ const hostname = '127.0.0.1';
 let httpServer = http.createServer(processRequest);
 
 //指定一个监听的接口
-httpServer.listen(port,hostname,function() {
+httpServer.listen(port,hostname,()=>{
     console.log(`app is running at port:${port}`);
     console.log(`url: http://${hostname}:${port}`);
-    cp.exec(`explorer http://${hostname}:${port}`, function () {
-    });
+    cp.exec(`explorer http://${hostname}:${port}`,()=>{});
 });
 
 //响应请求的函数
-function processRequest (request, response) {
+function processRequest (req, res) {
     //mime类型
     let mime = {
         "css": "text/css", 
@@ -47,7 +46,7 @@ function processRequest (request, response) {
     };
     
     //request里面切出标识符字符串
-    let requestUrl = request.url;
+    let requestUrl = req.url;
     //url模块的parse方法 接受一个字符串，返回一个url对象,切出来路径
     let pathName = url.parse(requestUrl).pathname;
 
@@ -57,13 +56,14 @@ function processRequest (request, response) {
     //解决301重定向问题，如果pathname没以/结尾，并且没有扩展名
     if (!pathName.endsWith('/') && path.extname(pathName) === '') {
         pathName += '/';
-        let redirect = "http://" + request.headers.host + pathName;
+        let redirect = "http://" + req.headers.host + pathName;
         redirectUrl(redirect);
     }
 
     //获取资源文件的绝对路径
     let filePath = path.resolve(__dirname + pathName);
-    console.log(filePath);
+    //console.log(filePath);
+
     //获取对应文件的文档类型
     //我们通过path.extname来获取文件的后缀名。由于extname返回值包含”.”，所以通过slice方法来剔除掉”.”，
     //对于没有后缀名的文件，我们一律认为是unknown。
@@ -75,8 +75,8 @@ function processRequest (request, response) {
 
     fs.stat(filePath, (err, stats) => {
         if (err) {
-            response.writeHead(404, { "content-type": "text/html" });
-            response.end("<h1>404 Not Found</h1>");
+            res.writeHead(404, { "content-type": "text/html" });
+            res.end("<h1>404 Not Found</h1>");
         }
         //没出错 并且文件存在
         if (!err && stats.isFile()) {
@@ -95,37 +95,38 @@ function processRequest (request, response) {
                         //如果在目录下找到index.html，直接读取这个文件
                         if (file === "index.html") {
                             //readFile(filePath + (filePath[filePath.length-1]=='/' ? '' : '/') + 'index.html', "text/html");
-                            let redirect = "http://" + request.headers.host + pathName + 'index.html';
+                            let redirect = "http://" + req.headers.host + pathName + 'index.html';
                             redirectUrl(redirect);
                         };
                         html += `<li><a href='${file}'>${file}</a></li>`;
                     }
                     html += '</ul></body>';
-                    response.writeHead(200, { "content-type": "text/html" });
-                    response.end(html);
+                    res.writeHead(200, { "content-type": "text/html" });
+                    res.end(html);
                 }
             });
         }   
     });
     //重定向
     function redirectUrl(url){
-        response.writeHead(301, {
+        url=encodeURI(url);
+        res.writeHead(301, {
             location: url
         });
         //response.end方法用来回应完成后关闭本次对话，也可以写入HTTP回应的具体内容。
-        response.end();
+        res.end();
     }
     //读取文件的函数
     function readFile(filePath, contentType){
-        response.writeHead(200, { "content-type": contentType });
+        res.writeHead(200, { "content-type": contentType });
         //建立流对象，读文件
         let stream = fs.createReadStream(filePath);
         //错误处理
         stream.on('error', function() {
-            response.writeHead(500, { "content-type": contentType });
-            response.end("<h1>500 Server Error</h1>");
+            res.writeHead(500, { "content-type": contentType });
+            res.end("<h1>500 Server Error</h1>");
         });
         //读取文件
-        stream.pipe(response);
+        stream.pipe(res);
     }
 }
