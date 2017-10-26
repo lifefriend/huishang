@@ -6,6 +6,7 @@ app.set('view engine','ejs');
 app.use(express.static('./public'));
 app.use(express.static('./uploads'));
 
+app.get('/favicon.ico',controller.showFavicon);
 app.get('/upload',controller.upload);
 app.post('/upload',controller.uploading);
 app.get('/create',controller.create);

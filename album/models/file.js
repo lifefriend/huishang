@@ -69,7 +69,7 @@ exports.rename=(oldPath, newPath,callback)=>{
 
 exports.create=(path,callback)=>{
     fs.access(path, fs.constants.F_OK,(err,stats)=>{
-        if (err || !stats.isDirectory()) {
+        if (err || !stats|| !stats.isDirectory()) {
             fs.mkdir(path, (err)=>{
                 callback(err);
             });
@@ -115,3 +115,6 @@ exports.deleteDir=(filepath,callback)=>{
         })(0); 
     }); 
 }
+exports.readFile=(filepath,callback)=>{
+    fs.readFile(filepath,callback);
+};
