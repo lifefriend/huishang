@@ -5,7 +5,7 @@ exports.emptyFolder=(bulitdir)=>{
     let isexist=fs.existsSync(bulitdir);
     if(isexist)
         deleteDir(bulitdir);
-    fs.mkdirSync(bulitdir);
+    fs.mkdirSync(bulitdir,511);
 };
 function deleteDir(dirpath){
     let result=fs.readdirSync(dirpath);
