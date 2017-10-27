@@ -34,7 +34,7 @@ for (let i = 0; i < keys.length; i++) {
         if(filePathObj[paths[key]]){
             //重复引用了，执行拷贝
             let oldPath=tempfilepath;
-            let saveName =(new Date()).getTime() + parseInt(Math.random()*10000) + extname;
+            let saveName =(new Date()).getTime() + parseInt(Math.random()*10000);
             let savePath = tempPath+'/'+saveName;
             let newPath=path.resolve(__dirname,savePath +extname);
             let writedata=fs.readFileSync(oldPath,"utf-8"); 
