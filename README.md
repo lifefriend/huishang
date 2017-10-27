@@ -8,3 +8,5 @@
 	(3) openlayers3的一些demo
 	
 2. album  node写的一个相册小程序
+
+4. rjs require+angular打包
