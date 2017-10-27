@@ -41,7 +41,7 @@ for (let i = 0; i < keys.length; i++) {
             fs.writeFileSync(newPath,writedata);
             paths[key]='_temp/'+saveName;
         }else{
-            filePathObj[paths[key]]=key;
+            filePathObj[paths[key]]=key;  
         }  
     }
 }
