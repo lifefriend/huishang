@@ -4,11 +4,11 @@
  */
 const fs=require("fs"); 
 const path = require('path');
-const utils = require('./utils.js');
+const file = require('./file.js');
 
 let configfilename=path.dirname(__filename) + '/config.js';
 let writedata=fs.readFileSync(configfilename,"utf-8"); 
 writedata=eval(writedata);
 let bulitdir=writedata.dir;
 bulitdir=path.resolve(__dirname,bulitdir);
-utils.emptyFolder(bulitdir);
+file.emptyFolder(bulitdir);

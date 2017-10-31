@@ -4,7 +4,7 @@
  */
 const fs=require("fs"); 
 const path = require('path');
-const utils = require('./utils.js');
+const file = require('./file.js');
 
 const extname='.js';
 let buildpath=path.dirname(__filename) + '/build.js';
@@ -16,7 +16,7 @@ let paths=odata.paths;
 //创建临时文件夹
 let tempPath=baseUrl+'/_temp';
 let tempFolder=path.resolve(__dirname,tempPath);
-utils.emptyFolder(tempFolder);
+file.emptyFolder(tempFolder);
 
 //存储不存在文件引用
 let missFileKey=[];
