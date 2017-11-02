@@ -28,9 +28,17 @@ function readConfig(configpath){
     let tempconfigpath=baseUrl+'/'+temppath;
     let tempfilepath=path.resolve(__dirname,tempconfigpath);
     let data=rf.readFileSync(tempfilepath,"utf-8"); 
-    let q=data.split('require.config({');
+
+    //方案1
+    //let q=data.split('require.config({');
+    //if(q.length<1) return;
+    //let w=q[1].split('})');
+    
+    //方案2
+    let q=data.split(/(require.config)([\s]+|[\s]?)(\()([\s]+|[\s]?)(\{)/i);
     if(q.length<1) return;
-    let w=q[1].split('})');
+    let w=q[q.length-1].split(/(\})([\s]+|[\s]?)(\))/i);
+
     let e=eval('({'+w[0]+'})');
     if(e.packages){
         writedata.packages=e.packages;
