@@ -20,3 +20,6 @@ file.deleteDir(tempFolder);
 let hideDir=path.resolve(__dirname,dir);
 file.deleteHideDir(hideDir);
 
+//删除build.txt
+let filepath=path.resolve(__dirname,dir+'/build.txt');
+file.deleteFile(filepath);

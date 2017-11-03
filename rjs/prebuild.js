@@ -29,6 +29,10 @@ function readConfig(configpath){
     let tempfilepath=path.resolve(__dirname,tempconfigpath);
     let data=rf.readFileSync(tempfilepath,"utf-8"); 
 
+    //清除注释
+    //let commentRegExp = /(\/\*([\s\S]*?)\*\/|([^:]|^)\/\/(.*)$)/mg;
+    //let data=data.replace(commentRegExp,"");
+
     //方案1
     //let q=data.split('require.config({');
     //if(q.length<1) return;

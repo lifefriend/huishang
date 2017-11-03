@@ -15,11 +15,11 @@ start /b %~fs0
 :lp
 for /l %%a in (1,1,30) do (
    set /p=■<nul
-   for /l %%a in (1,1,600) do echo>nul
+   for /l %%a in (1,1,500) do echo>nul
 )
 for /l %%a in (1,1,30) do (
     set /p= <nul
-    for /l %%a in (1,1,600) do echo>nul
+    for /l %%a in (1,1,1000) do echo>nul
 )
 goto lp    
 :next
@@ -29,7 +29,7 @@ goto lp
 @node prebuild.js >> log.txt
 @node checkfile.js >> log.txt
 @node r.js -o build.js >> log.txt
-@node afetrbuild.js >> log.txt
+@node afterbuild.js >> log.txt
 @echo success...
 
 taskkill /f /fi "windowtitle ne n_p_bar" /im "cmd.exe"

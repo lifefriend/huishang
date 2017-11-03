@@ -1,10 +1,13 @@
 const fs=require("fs"); 
 const path = require('path');
+exports.deleteFile = deleteFile;
 exports.deleteDir = deleteDir;
 exports.deleteHideDir = deleteHideDir;
 exports.emptyFolder=emptyFolder;
 
 function deleteHideDir(dirpath){
+    let isexist=fs.existsSync(dirpath);
+    if(!isexist) return;
     let result=fs.readdirSync(dirpath);
     result.forEach((data)=>{
         let filepath=path.resolve(dirpath,data);
@@ -24,16 +27,14 @@ function emptyFolder(bulitdir){
     }   
 }
 function deleteDir(dirpath){
+    let isexist=fs.existsSync(dirpath);
+    if(!isexist) return;
     let result=fs.readdirSync(dirpath);
     result.forEach((data)=>{
         let filepath=path.resolve(dirpath,data);
         let stats=fs.statSync(filepath);
         if(stats.isFile())
-            try {
-                fs.unlinkSync(filepath);
-            } catch (error) {
-                console.log(error);
-            }           
+            deleteFile(filepath);          
         else
             deleteDir(filepath);            
     });  
@@ -42,4 +43,12 @@ function deleteDir(dirpath){
     } catch (error) {
         console.log(error);
     }    
+}
+
+function deleteFile(filepath){
+    try {
+        fs.unlinkSync(filepath);
+    } catch (error) {
+        console.log(error);
+    } 
 }
