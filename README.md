@@ -1,12 +1,18 @@
-﻿一些杂七杂八的记录
+一些杂七杂八的记录
 
-1. temp 
-	(1) server.js 一个微型的http服务
-
-	(2) crawler.js 爬虫demo
-
-	(3) openlayers3的一些demo
+ temp     
+> 	(1) crawler.js 爬虫demo
+> 	(2) server.js 一个微型的http服务  
+> 	(3) openlayers3的一些demo
 	
-2. album  node写的一个相册小程序
+album  
+	
+> node写的一个相册小程序
 
-4. rjs require+angular打包
+rjs 
+
+> require+angular打包
+
+GraphQL
+
+> GraphQL demo
