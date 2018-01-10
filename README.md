@@ -2,7 +2,9 @@
 
  temp     
 > 	(1) crawler.js 爬虫demo
-> 	(2) server.js 一个微型的http服务  
+
+> 	(2) server.js 一个微型的http服务 
+ 
 > 	(3) openlayers3的一些demo
 	
 album  
@@ -16,3 +18,11 @@ rjs
 GraphQL
 
 > GraphQL demo
+
+puppeteer
+
+>puppeteer demo
+
+xls2json
+
+>xls2json demo
