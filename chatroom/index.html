@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        .user{
+            color:lightskyblue;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="text-center">欢迎来老王聊天室</h4>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-group" id="messageUl">
+
+                    </ul>
+                </div>
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <input id="txtMsg" class="form-control" type="text" onkeydown="handleKeyDown(event)">
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn btn-default" onclick="send()">发送
+                                <span class="glyphicon glyphicon-send"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>在线用户</h4>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-group" id="userUl"></ul>
+                </div>
+                <div class="panel-footer">
+                    <h4 id="onlineUsers">在线人数 0</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--npm i express socket.io -S -->
+<script src="node_modules/socket.io-client/dist/socket.io.js"></script>
+<script>
+    let txtMsg = document.querySelector('#txtMsg');
+    let onlineUsers = document.querySelector('#onlineUsers');
+    //此脚本会在window上增加一个io的属性
+    //http://localhost:8080/=/=空
+    let socket = io.connect('127.0.0.1:8080');
+    //当客户端连接服务器成功之后,向后台发送一个消息，问一下现在有哪些在线用户
+    socket.on('connect',function(){
+        socket.emit('users');
+    });
+    let messageUl = document.querySelector('#messageUl');
+    let userUl = document.querySelector('#userUl');
+    //监听服务器发过来的消息
+    socket.on('message',function(msgObj){
+        let li = document.createElement('li');
+        li.className = 'list-group-item';
+        li.innerHTML = `${msgObj.username}:${msgObj.content} <span class="pull-right">${new Date(msgObj.createAt).toLocaleString()}</span>`;
+        messageUl.appendChild(li);
+    });
+    socket.on('userList',function(userList){
+        userUl.innerHTML =  userList.map(item=>(
+            `<li class="list-group-item">${item}</li>`
+        )).join('');
+        countUser();
+    });
+    socket.on('user-added',function(username){
+        let li = document.createElement('li');
+        li.className = 'list-group-item';
+        li.innerHTML = `<span class="user">${username}</span>`;
+        userUl.appendChild(li);
+        countUser();
+    });
+    function countUser(){
+        onlineUsers.innerHTML = `在线人数 ${userUl.children.length}`;
+    }
+    //发送事件
+    function send(){
+        let content = txtMsg.value;//先拿到聊天的内容
+        socket.send(content);
+        txtMsg.value = '';
+    }
+    function handleKeyDown(event){
+        if(event.keyCode == 13)
+            send();
+    }
+    //给父级绑定点击事件 事件委托
+    //要判断点的是span而非别的元素
+    userUl.addEventListener('click',function(event){
+        //如果事件源的类名是user的话
+        if(event.target.className == 'user'){
+            let username = event.target.innerHTML;
+            txtMsg.value = `@${username} `;
+        }
+    })
+</script>
+</body>
+</html>
