@@ -30,3 +30,7 @@ xls2json
 chatroom
 
 >socket.io demo
+
+db
+
+>node db demo
