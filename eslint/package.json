@@ -1,0 +1,17 @@
+{
+    "name": "eslint-demo",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "lint": "eslint *.js src --fix",
+        "beatufyjs": "node ./src/beatufyjs src *.js",
+        "start": "npm run lint && npm run beatufyjs"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "eslint": "^4.16.0",
+        "js-beautify": "^1.7.5"
+    }
+}
