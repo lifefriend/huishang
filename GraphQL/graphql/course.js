@@ -54,7 +54,6 @@ export const course = {
   type: new GraphQLList(CourseType),
   args: {},
   resolve (root, params, options) {
-    let ss=Course.find({}).exec()
-    return ss
+    return Course.find({}).exec()
   }
 }
