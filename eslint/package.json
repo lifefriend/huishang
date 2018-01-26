@@ -1,17 +1,37 @@
 {
-    "name": "eslint-demo",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-        "lint": "eslint *.js src --fix",
-        "beatufyjs": "node ./src/beatufyjs src *.js",
-        "start": "npm run lint && npm run beatufyjs"
-    },
-    "author": "",
-    "license": "ISC",
-    "devDependencies": {
-        "eslint": "^4.16.0",
-        "js-beautify": "^1.7.5"
+  "name": "eslint-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint *.js src --fix",
+    "beatufyjs": "node ./src/beatufyjs src tests *.js",
+    "test": "mocha tests/",
+    "pre-git": "npm run lint && npm run beatufyjs && npm run test",  
+    "start": "npm run pre-git"
+  },
+  "author": "",
+  "license": "ISC",
+  "config": {
+    "pre-git": {
+      "commit-msg": "",
+      "pre-commit": [
+        "pre-git",
+        "git add ."
+      ],
+      "pre-push": [],
+      "post-commit": [],
+      "post-checkout": [],
+      "post-merge": []
     }
+  },
+  "devDependencies": {
+    "eslint": "^4.16.0",
+    "js-beautify": "^1.7.5",
+    "mocha": "^5.0.0",
+    "pre-git": "^3.17.0"
+  },
+  "release": {
+    "analyzeCommits": "simple-commit-message"
+  }
 }

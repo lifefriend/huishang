@@ -1,0 +1,25 @@
+{
+  "name": "nodejs-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "author": "",
+  "license": "ISC",
+  "config": {
+    "pre-git": {
+      "commit-msg": "",
+      "pre-commit": [],
+      "pre-push": [],
+      "post-commit": [],
+      "post-checkout": [],
+      "post-merge": []
+    }
+  },
+  "devDependencies": {
+    "pre-git": "^3.17.0"
+  },
+  "release": {
+    "analyzeCommits": "simple-commit-message"
+  }
+}
