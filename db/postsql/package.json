@@ -4,12 +4,23 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint *.js src --fix",
+    "beatufyjs": "node ./tools/beatufyjs src tests *.js",
+    "test": "mocha tests/",
+    "server": "node ./src/index",
+    "pre-git": "npm run lint && npm run beatufyjs && npm run test",
+    "start": "npm run pre-git && npm run server"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "pg": "^7.4.1",
     "sequelize": "^4.31.2"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.1",
+    "eslint": "^4.16.0",
+    "js-beautify": "^1.7.5",
+    "mocha": "^5.0.0"
   }
 }

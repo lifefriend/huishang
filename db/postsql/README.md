@@ -5,7 +5,7 @@ npm index
 
 http://localhost:3000/postsql
 
-http://localhost:3000/postsql/postsql/orm
+http://localhost:3000/postsql/orm
 
 #参考文档
 
