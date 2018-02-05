@@ -4,12 +4,22 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "tsc -P tsconfig.json",
+    "start": "npm run build && node built/app",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/cheerio": "^0.22.7",
+    "@types/mongoose": "^5.0.1",
     "@types/node": "^9.4.0",
+    "@types/superagent": "^3.5.7",
+    "cheerio": "^1.0.0-rc.2",
+    "i": "^0.3.6",
+    "mongoose": "^5.0.3",
+    "npm": "^5.6.0",
+    "superagent": "^3.8.2",
     "typescript": "^2.7.1"
   }
 }
