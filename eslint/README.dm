@@ -13,3 +13,5 @@ npm run start
 http://cnodejs.org/topic/578d887f6d3f2b2014113f78
 
 http://cnodejs.org/topic/516526766d38277306c7d277
+
+https://github.com/mishoo/UglifyJS2/tree/harmony

@@ -1,7 +1,4 @@
-const str = 'some value';
-
-function fn() {
-    console.log( str );
+function addPlus( first, second ) {
+    return first + second;
 }
-
-fn();
+console.log( addPlus( 1, 2 ) );

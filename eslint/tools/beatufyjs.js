@@ -1,14 +1,7 @@
 const fs = require( 'fs' );
 const path = require( 'path' );
 const child_process = require( 'child_process' );
-const defaults = {
-    encoding: 'utf8',
-    timeout: 0,
-    maxBuffer: 200 * 1024,
-    killSignal: 'SIGTERM',
-    cwd: null,
-    env: null
-};
+
 // 解决win下中文乱码
 // const iconv = require('iconv-lite'); 
 // const encoding = 'cp936';
@@ -70,7 +63,7 @@ function checkExt( str, ext ) {
 }
 
 function beatufy( pathName ) {
-    child_process.exec( `node ./node_modules/js-beautify/js/bin/js-beautify.js -P -E -j -a ${pathName} -r`, defaults, function ( error, stdout, stderr ) {
+    child_process.exec( `node ./node_modules/js-beautify/js/bin/js-beautify.js -P -E -j -a ${pathName} -r`, function ( error, stdout, stderr ) {
         //console.log( '-------------------begin----------------------------' );
         if ( error ) {
             console.log( error.message );

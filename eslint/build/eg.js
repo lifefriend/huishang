@@ -1,0 +1,1 @@
+function addPlus(d,l){return d+l}console.log(addPlus(1,2));
