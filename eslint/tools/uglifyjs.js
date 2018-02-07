@@ -50,7 +50,7 @@ function buildOne(flieIn, fileOut) {
   let origCode = fs.readFileSync(flieIn, 'utf8');
   let option = {
     compress: true,
-    mangle: true,
+    mangle: { toplevel: true },
     sourceMap: true
   };
   let result = UglifyJS.minify(origCode, option);
