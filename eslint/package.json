@@ -7,6 +7,7 @@
     "lint": "eslint *.js src --fix",
     "beatufyjs": "node ./tools/beatufyjs src tests",
     "uglifyjs": "node ./tools/uglifyjs src build",
+	"lessjs": "node ./tools/lessjs public/less public/css",
     "test": "mocha tests/",
     "pre-git": "npm run lint && npm run beatufyjs && npm run test",
     "build": "npm run pre-git && npm run uglifyjs",
@@ -32,6 +33,7 @@
     "js-beautify": "^1.7.5",
     "mocha": "^5.0.0",
     "pre-git": "^3.17.0",
+	"less": "^3.0.1",
     "uglify-es": "^3.3.9"
   },
   "release": {
