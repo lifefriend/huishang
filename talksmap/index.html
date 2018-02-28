@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="js/libs/maptalks-0.38.2/maptalks.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/dev.css">
+</head>
+
+<body>
+    <div class="main">
+        <div class="header">
+            <div class="right-bar">
+                <span class="welcome">当前用户：<b>...</b> <button class="btn btn-info btn-xs"><i class="fa fa-sign-out"></i> 注销</button></span>
+            </div>
+        </div>
+        <div  ng-controller="map_stateCtrl" style="width: 600px;height: 600px;">
+            <ng-maptalks map="map"></ng-ol-map>           
+        </div>
+        
+        <div class="mainContent  has-shadow">
+            <div ng-view></div>
+        </div>
+    </div>
+    <script data-main="js/main" src="js/libs/require.js"></script>
+</body>
+</html>
