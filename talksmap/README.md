@@ -1,4 +1,10 @@
-# maptalks demo
+# maptalks demo（requireJS + angularJS）
+
+# 打包说明 
+
+1、修改 tools/config.js
+
+2、点击运行 tools/run.bat
 
 参考文档
 
