@@ -1,0 +1,9 @@
+{
+  "name": "test-npm-user-downloads",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "npm-user-downloads": "^1.2.0"
+  }
+}
