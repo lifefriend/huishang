@@ -1,0 +1,14 @@
+{
+  "name": "electorn-capture-screen",
+  "version": "1.0.0",
+  "main": "main.js",
+  "repository": "",
+  "author": "",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron ."
+  },
+  "dependencies": {
+    "electron": "^3.0.2"
+  }
+}
