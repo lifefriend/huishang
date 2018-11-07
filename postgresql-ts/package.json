@@ -1,0 +1,24 @@
+{
+  "name": "postgresql-ts",
+  "version": "1.0.0",
+  "main": "./dist/server.js",
+  "license": "MIT",
+  "scripts": {
+    "server": "nodemon ./dist/server.js",
+    "dev": "tsc && concurrently \"npm run tsc\" \"npm run server\"",
+    "build": "tsc",
+    "tsc": "tsc -w"
+  },
+  "dependencies": {
+    "koa": "^2.6.1",
+    "koa-router": "^7.4.0"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.0.46",
+    "@types/koa-router": "^7.0.33",
+    "@types/node": "^10.12.2",
+    "concurrently": "^4.0.1",
+    "nodemon": "^1.18.6",
+    "typescript": "^3.1.6"
+  }
+}
