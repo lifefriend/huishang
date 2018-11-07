@@ -4,14 +4,18 @@
   "main": "./dist/server.js",
   "license": "MIT",
   "scripts": {
-    "server": "nodemon ./dist/server.js",
+    "server": "nodemon main",
     "dev": "tsc && concurrently \"npm run tsc\" \"npm run server\"",
     "build": "tsc",
     "tsc": "tsc -w"
   },
   "dependencies": {
     "koa": "^2.6.1",
-    "koa-router": "^7.4.0"
+    "koa-router": "^7.4.0",
+    "pg": "^7.6.0",
+    "reflect-metadata": "^0.1.12",
+    "sequelize": "^4.41.1",
+    "sequelize-typescript": "^0.6.6"
   },
   "devDependencies": {
     "@types/koa": "^2.0.46",
