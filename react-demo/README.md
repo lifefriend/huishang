@@ -1,7 +1,2 @@
-#Creating a New Application
+# react demo using webpack4
 
-npm install -g create-react-app
-create-react-app my-app
-
-cd my-app
-npm start
