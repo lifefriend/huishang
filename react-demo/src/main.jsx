@@ -1,14 +1,16 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-import './css/index.scss';
+import { MyMap } from './map/index.jsx'
+
+import './main.scss'
 
 class Index extends React.Component {
   render() {
     return (
-      <div>Hello React!!</div>
+      <MyMap/>
     );
   }
 }
 
-ReactDOM.render(<Index />, document.getElementById("root"));
+ReactDOM.render(<Index />, document.getElementById('root'));

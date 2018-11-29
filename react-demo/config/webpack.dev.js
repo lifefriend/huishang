@@ -1,10 +1,11 @@
-const glob = require('glob');
+const glob = require('glob-all');
 const path = require('path');
 const uglify = require('uglifyjs-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const PurifyCSSPlugin = require("purifycss-webpack");
 
+console.log('process.env.NODE_ENV: ', process.env.NODE_ENV);
 module.exports = {
   mode: 'development',
   entry: {
@@ -26,7 +27,7 @@ module.exports = {
               loader:"css-loader"
             },
             {
-              loader:"postcss-loader",
+              loader:"postcss-loader"
             }
           ]
         }),
@@ -55,7 +56,8 @@ module.exports = {
           use: [
             {
                 loader: "css-loader"
-            }, {
+            }, 
+            {
                 loader: "sass-loader"
             }
           ],
@@ -80,11 +82,17 @@ module.exports = {
         removeAttributeQuotes:true 
       }, 
       hash:true,  
-      template:'./src/index.html'
+      template:'./index.html'
     }),
-    new ExtractTextPlugin("css/index.css"),
-    new PurifyCSSPlugin({ 
-      paths: glob.sync(path.join(__dirname, 'src/*.html')),
+    new ExtractTextPlugin({
+      filename: "css/[name].css?[hash:8]"
+    }),
+    new PurifyCSSPlugin({
+      paths: glob.sync([
+        path.join(__dirname, '../index.html'),
+        path.join(__dirname, '../src/*/*.jsx')
+      ]),
+      minimize:true
     })
   ],
   devServer: {

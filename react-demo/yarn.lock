@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@maptalks/feature-filter@^1.0.0":
+  version "1.0.0"
+  resolved "http://registry.npm.taobao.org/@maptalks/feature-filter/download/@maptalks/feature-filter-1.0.0.tgz#bfcc7f705e6de5c6c3d3802a3b5081272c877fc8"
+  integrity sha1-v8x/cF5t5cbD04AqO1CBJyyHf8g=
+
 "@webassemblyjs/ast@1.7.11":
   version "1.7.11"
   resolved "http://registry.npm.taobao.org/@webassemblyjs/ast/download/@webassemblyjs/ast-1.7.11.tgz#b988582cafbb2b095e8b556526f30c90d057cace"
@@ -2552,6 +2557,14 @@ getpass@^0.1.1:
   dependencies:
     assert-plus "^1.0.0"
 
+glob-all@^3.1.0:
+  version "3.1.0"
+  resolved "http://registry.npm.taobao.org/glob-all/download/glob-all-3.1.0.tgz#8913ddfb5ee1ac7812656241b03d5217c64b02ab"
+  integrity sha1-iRPd+17hrHgSZWJBsD1SF8ZLAqs=
+  dependencies:
+    glob "^7.0.5"
+    yargs "~1.2.6"
+
 glob-parent@^3.1.0:
   version "3.1.0"
   resolved "http://registry.npm.taobao.org/glob-parent/download/glob-parent-3.1.0.tgz#9e6af6299d8d3bd2bd40430832bd113df906c5ae"
@@ -3468,7 +3481,7 @@ loglevel@^1.4.1:
   resolved "http://registry.npm.taobao.org/loglevel/download/loglevel-1.6.1.tgz#e0fc95133b6ef276cdc8887cdaf24aa6f156f8fa"
   integrity sha1-4PyVEztu8nbNyIh82vJKpvFW+Po=
 
-loose-envify@^1.0.0:
+loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.3.1:
   version "1.4.0"
   resolved "http://registry.npm.taobao.org/loose-envify/download/loose-envify-1.4.0.tgz#71ee51fa7be4caec1a63839f7e682d8132d30caf"
   integrity sha1-ce5R+nvkyuwaY4OffmgtgTLTDK8=
@@ -3526,6 +3539,15 @@ map-visit@^1.0.0:
   integrity sha1-7Nyo8TFE5mDxtb1B8S80edmN+48=
   dependencies:
     object-visit "^1.0.0"
+
+maptalks@^0.42.1:
+  version "0.42.1"
+  resolved "http://registry.npm.taobao.org/maptalks/download/maptalks-0.42.1.tgz#ad6ac3c8210a74c7ba0334687aad764c35ea276c"
+  integrity sha1-rWrDyCEKdMe6AzRoeq12TDXqJ2w=
+  dependencies:
+    "@maptalks/feature-filter" "^1.0.0"
+    simplify-js "^1.2.1"
+    zousan "^2.3.3"
 
 md5.js@^1.3.4:
   version "1.3.5"
@@ -3666,6 +3688,11 @@ minimist@0.0.8:
   version "0.0.8"
   resolved "http://registry.npm.taobao.org/minimist/download/minimist-0.0.8.tgz#857fcabfc3397d2625b8228262e86aa7a011b05d"
   integrity sha1-hX/Kv8M5fSYluCKCYuhqp6ARsF0=
+
+minimist@^0.1.0:
+  version "0.1.0"
+  resolved "http://registry.npm.taobao.org/minimist/download/minimist-0.1.0.tgz#99df657a52574c21c9057497df742790b2b4c0de"
+  integrity sha1-md9lelJXTCHJBXSX33QnkLK0wN4=
 
 minimist@^1.1.3, minimist@^1.2.0:
   version "1.2.0"
@@ -4003,7 +4030,7 @@ oauth-sign@~0.9.0:
   resolved "http://registry.npm.taobao.org/oauth-sign/download/oauth-sign-0.9.0.tgz#47a7b016baa68b5fa0ecf3dee08a85c679ac6455"
   integrity sha1-R6ewFrqmi1+g7PPe4IqFxnmsZFU=
 
-object-assign@^4.0.1, object-assign@^4.1.0:
+object-assign@^4.0.1, object-assign@^4.1.0, object-assign@^4.1.1:
   version "4.1.1"
   resolved "http://registry.npm.taobao.org/object-assign/download/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
   integrity sha1-IQmtx5ZYh8/AXLvUQsrIv7s2CGM=
@@ -4477,6 +4504,14 @@ promise-inflight@^1.0.1:
   resolved "http://registry.npm.taobao.org/promise-inflight/download/promise-inflight-1.0.1.tgz#98472870bf228132fcbdd868129bad12c3c029e3"
   integrity sha1-mEcocL8igTL8vdhoEputEsPAKeM=
 
+prop-types@^15.6.2:
+  version "15.6.2"
+  resolved "http://registry.npm.taobao.org/prop-types/download/prop-types-15.6.2.tgz#05d5ca77b4453e985d60fc7ff8c859094a497102"
+  integrity sha1-BdXKd7RFPphdYPx/+MhZCUpJcQI=
+  dependencies:
+    loose-envify "^1.3.1"
+    object-assign "^4.1.1"
+
 proxy-addr@~2.0.4:
   version "2.0.4"
   resolved "http://registry.npm.taobao.org/proxy-addr/download/proxy-addr-2.0.4.tgz#ecfc733bf22ff8c6f407fa275327b9ab67e48b93"
@@ -4622,6 +4657,26 @@ rc@^1.2.7:
     ini "~1.3.0"
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
+
+react-dom@^16.2.0:
+  version "16.6.3"
+  resolved "http://registry.npm.taobao.org/react-dom/download/react-dom-16.6.3.tgz#8fa7ba6883c85211b8da2d0efeffc9d3825cccc0"
+  integrity sha1-j6e6aIPIUhG42i0O/v/J04JczMA=
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+    prop-types "^15.6.2"
+    scheduler "^0.11.2"
+
+react@^16.2.0:
+  version "16.6.3"
+  resolved "http://registry.npm.taobao.org/react/download/react-16.6.3.tgz#25d77c91911d6bbdd23db41e70fb094cc1e0871c"
+  integrity sha1-Jdd8kZEda73SPbQecPsJTMHghxw=
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+    prop-types "^15.6.2"
+    scheduler "^0.11.2"
 
 read-pkg-up@^1.0.1:
   version "1.0.1"
@@ -4934,6 +4989,14 @@ sax@^1.2.4:
   resolved "http://registry.npm.taobao.org/sax/download/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
   integrity sha1-KBYjTiN4vdxOU1T6tcqold9xANk=
 
+scheduler@^0.11.2:
+  version "0.11.2"
+  resolved "http://registry.npm.taobao.org/scheduler/download/scheduler-0.11.2.tgz#a8db5399d06eba5abac51b705b7151d2319d33d3"
+  integrity sha1-qNtTmdBuulq6xRtwW3FR0jGdM9M=
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+
 schema-utils@^0.4.4, schema-utils@^0.4.5:
   version "0.4.7"
   resolved "http://registry.npm.taobao.org/schema-utils/download/schema-utils-0.4.7.tgz#ba74f597d2be2ea880131746ee17d0a093c68187"
@@ -5096,6 +5159,11 @@ signal-exit@^3.0.0:
   version "3.0.2"
   resolved "http://registry.npm.taobao.org/signal-exit/download/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
   integrity sha1-tf3AjxKH6hF4Yo5BXiUTK3NkbG0=
+
+simplify-js@^1.2.1:
+  version "1.2.3"
+  resolved "http://registry.npm.taobao.org/simplify-js/download/simplify-js-1.2.3.tgz#a3422c1b9884d60421345eb44d2b872662df27f5"
+  integrity sha1-o0IsG5iE1gQhNF60TSuHJmLfJ/U=
 
 slash@^1.0.0:
   version "1.0.0"
@@ -6097,3 +6165,15 @@ yargs@^8.0.1:
     which-module "^2.0.0"
     y18n "^3.2.1"
     yargs-parser "^7.0.0"
+
+yargs@~1.2.6:
+  version "1.2.6"
+  resolved "http://registry.npm.taobao.org/yargs/download/yargs-1.2.6.tgz#9c7b4a82fd5d595b2bf17ab6dcc43135432fe34b"
+  integrity sha1-nHtKgv1dWVsr8Xq23MQxNUMv40s=
+  dependencies:
+    minimist "^0.1.0"
+
+zousan@^2.3.3:
+  version "2.3.3"
+  resolved "http://registry.npm.taobao.org/zousan/download/zousan-2.3.3.tgz#85432ff253a5fcb6a192416cdebc4e3dc9cb9813"
+  integrity sha1-hUMv8lOl/LahkkFs3rxOPcnLmBM=
