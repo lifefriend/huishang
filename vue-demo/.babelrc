@@ -1,0 +1,24 @@
+{
+  // 预设置，告诉Babel要转换的源码使用了哪些新的语法特性
+  // targets, useBuiltIns 等选项用于编译出兼容目标环境的代码
+  // 其中 useBuiltIns 如果设为 "usage"
+  // Babel 会根据实际代码中使用的 ES6/ES7 代码，以及与你指定的 targets，按需引入对应的 polyfill
+  // 而无需在代码中直接引入 import '@babel/polyfill'，避免输出的包过大，同时又可以放心使用各种新语法特性。
+  "presets": [
+      ["@babel/preset-env", {
+          // modules 是否 将 ES6 的 import/export模块化 转为 babel 的 CommonJs 规范模块化
+          "modules": false,
+          "targets": {
+              // "> 1%" : 支持市场份额超过1%的浏览器, 
+              // ""last 2 versions"": 支持每个浏览器最后两个版本
+              // "not ie <= 8": 在之前条件的浏览器中，排除 IE8 以下的浏览器
+              "browsers": ["> 1%", "last 2 versions", "not ie <= 8"]
+          },
+          "useBuiltIns": "usage"
+      }]
+  ],
+  // 所用插件
+  // transform-runtime 插件表示不管浏览器是否支持ES6，只要是ES6的语法，它都会进行转码成ES5
+  // 这个是需要优化的
+  "plugins": ["@babel/plugin-transform-runtime"]
+}
